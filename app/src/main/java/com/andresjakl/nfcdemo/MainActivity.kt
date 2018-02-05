@@ -116,6 +116,11 @@ class MainActivity : AppCompatActivity() {
         if (intent != null) processIntent(intent)
     }
 
+    /**
+     * Check if the Intent has the action "ACTION_NDEF_DISCOVERED". If yes, handle it
+     * accordingly and parse the NDEF messages.
+     * @param checkIntent the intent to parse and handle if it's the right type
+     */
     private fun processIntent(checkIntent: Intent) {
         // Check if intent has the action of a discovered NFC tag
         // with NDEF formatted contents
@@ -154,7 +159,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Parse the NDEF message contents and print
+     * Parse the NDEF message contents and print these to the on-screen log.
      */
     private fun processNdefMessages(ndefMessages: Array<NdefMessage?>) {
         // Go through all NDEF messages found on the NFC tag
